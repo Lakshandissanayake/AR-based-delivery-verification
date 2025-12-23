@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "901317043046",
+    "project_id": "delivery-verification-system",
+    "storage_bucket": "delivery-verification-system.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901317043046:android:4b213882335193ccce1ea7",
+        "android_client_info": {
+          "package_name": "com.example.delivery_verification_system"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu8Zwa1o-LWHY9-vpVqYcmcsrUsmVPkkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

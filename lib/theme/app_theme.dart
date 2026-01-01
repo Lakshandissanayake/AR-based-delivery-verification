@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const Color primary = Color(0xFFFC5C4C);
-  static const Color background = Color(0xFFF6F7FB);
-  static const Color card = Colors.white;
-  static const Color textPrimary = Color(0xFF1C1E2A);
-  static const Color textSecondary = Color(0xFF8A8FA3);
-  static const Color outline = Color(0xFFE1E3EA);
-  static const Color success = Color(0xFF2ECC71);
-  static const Color error = Color(0xFFE74C3C);
+static const Color primary = Color(0xFF4A6CF7);      // Blue – trust & technology
+static const Color background = Color(0xFFF4F6FC);   // Light cool background
+static const Color card = Color(0xFFFFFFFF);         // Pure white
+static const Color textPrimary = Color(0xFF1A1D2E);  // Dark navy text
+static const Color textSecondary = Color(0xFF6B728C); // Muted gray-blue
+static const Color outline = Color(0xFFD1D5E0);      // Soft border
+static const Color success = Color(0xFF22C55E);      // Modern green
+static const Color error = Color(0xFFEF4444);        // Clear red
 }
 
 class AppTheme {

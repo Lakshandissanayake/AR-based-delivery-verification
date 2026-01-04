@@ -99,6 +99,7 @@ class PackageSuggestionView extends GetView<WarehouseController> {
         title: 'Eco compact kit',
         icon: Icons.eco_rounded,
         boxSize: '32 × 22 × 14 cm double-wall',
+        // cushioning: 'Honeycomb wrap + kraft void fill',
         cushioning: 'Honeycomb wrap + kraft void fill',
         sealing: 'Fiber tape / QR tamper label',
         notes:

@@ -164,14 +164,14 @@ class LoginView extends GetView<AuthController> {
                 fontWeight: FontWeight.w600,
                 color: AppColors.text,
               ),
-              items: controller.roles
-                  .map(
-                    (role) => DropdownMenuItem<String>(
-                      value: role,
-                      child: Text(role, overflow: TextOverflow.ellipsis),
-                    ),
-                  )
-                  .toList(),
+              // items: controller.roles
+              //     .map(
+              //       (role) => DropdownMenuItem<String>(
+              //         value: role,
+              //         child: Text(role, overflow: TextOverflow.ellipsis),
+              //       ),
+              //     )
+              //     .toList(),
               onChanged: controller.updateRole,
             ),
           ),

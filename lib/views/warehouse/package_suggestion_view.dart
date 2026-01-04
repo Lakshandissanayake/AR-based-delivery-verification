@@ -58,7 +58,7 @@ class PackageSuggestionView extends GetView<WarehouseController> {
               const SizedBox(height: 10),
               ...suggestions
                   .map((suggestion) => _SuggestionCard(suggestion: suggestion))
-                  .toList(),
+                  ,
               const SizedBox(height: 12),
               PrimaryButton(
                 label: 'Send for delivery',

@@ -1,5 +1,4 @@
 import 'package:delivery_verification_system/routes/app_pages.dart';
-import 'package:delivery_verification_system/views/warehouse/orders_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,7 +12,11 @@ class PackageSuggestionView extends GetView<WarehouseController> {
 
   @override
   Widget build(BuildContext context) {
-    final String? orderId = Get.arguments as String?;
+    final dynamic args = Get.arguments;
+    final String? orderId =
+        args is Map<String, dynamic> ? args['orderId'] as String? : args as String?;
+    final _PackageInputs? packageInputs =
+        args is Map<String, dynamic> ? _PackageInputs.fromMap(args) : null;
 
     return Obx(() {
       final order = controller.getOrderById(orderId);
@@ -51,6 +54,10 @@ class PackageSuggestionView extends GetView<WarehouseController> {
             children: [
               _OrderSummaryCard(order: order),
               const SizedBox(height: 28),
+              if (packageInputs != null) ...[
+                _InputsSummaryCard(inputs: packageInputs),
+                const SizedBox(height: 22),
+              ],
               const Text(
                 'Recommended packaging flows',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
@@ -58,7 +65,7 @@ class PackageSuggestionView extends GetView<WarehouseController> {
               const SizedBox(height: 10),
               ...suggestions
                   .map((suggestion) => _SuggestionCard(suggestion: suggestion))
-                  ,
+                  .toList(),
               const SizedBox(height: 12),
               PrimaryButton(
                 label: 'Send for delivery',
@@ -412,4 +419,77 @@ class _PackagingSuggestion {
   final String sealing;
   final String notes;
   final List<String> checklist;
+}
+
+class _PackageInputs {
+  const _PackageInputs({
+    required this.weight,
+    required this.productType,
+    required this.distance,
+    required this.transportMode,
+    required this.materialCost,
+  });
+
+  factory _PackageInputs.fromMap(Map<String, dynamic> map) {
+    return _PackageInputs(
+      weight: (map['packageWeight'] ?? '').toString(),
+      productType: (map['productType'] ?? '').toString(),
+      distance: (map['deliveryDistance'] ?? '').toString(),
+      transportMode: (map['transportMode'] ?? '').toString(),
+      materialCost: (map['materialCost'] ?? '').toString(),
+    );
+  }
+
+  final String weight;
+  final String productType;
+  final String distance;
+  final String transportMode;
+  final String materialCost;
+}
+
+class _InputsSummaryCard extends StatelessWidget {
+  const _InputsSummaryCard({required this.inputs});
+
+  final _PackageInputs inputs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: AppColors.outline),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: AppColors.primary.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: const Icon(Icons.fact_check_rounded, color: AppColors.primary),
+              ),
+              const SizedBox(width: 12),
+              const Text(
+                'Packaging inputs',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+              ),
+            ],
+          ),
+          const SizedBox(height: 14),
+          _InfoRow(label: 'Package weight', value: '${inputs.weight} kg'),
+          _InfoRow(label: 'Product type', value: inputs.productType),
+          _InfoRow(label: 'Delivery distance', value: '${inputs.distance} km'),
+          _InfoRow(label: 'Transport mode', value: inputs.transportMode),
+          _InfoRow(label: 'Material cost budget', value: '\$${inputs.materialCost}'),
+        ],
+      ),
+    );
+  }
 }

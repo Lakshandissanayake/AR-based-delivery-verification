@@ -70,7 +70,7 @@ class OrderDetailsView extends GetView<WarehouseController> {
                 onTap: () {
                   controller.selectOrder(order);
                   if (isAccepted) {
-                    Get.toNamed(Routes.packageSuggestion, arguments: order.id);
+                    Get.toNamed(Routes.packageForm, arguments: order.id);
                   } else {
                     Get.toNamed(Routes.verificationCapture);
                   }

@@ -12,6 +12,7 @@ import '../views/customer/register_view.dart';
 import '../views/delivery/delivery_home_view.dart';
 import '../views/login_view.dart';
 import '../views/warehouse/order_details_view.dart';
+import '../views/warehouse/package_form_view.dart';
 import '../views/warehouse/package_suggestion_view.dart';
 import '../views/warehouse/verification_capture_view.dart';
 import '../views/warehouse/verification_model_view.dart';
@@ -21,6 +22,7 @@ abstract class Routes {
   static const String login = '/login';
   static const String warehouseHome = '/warehouse';
   static const String orderDetails = '/order-details';
+  static const String packageForm = '/package-form';
   static const String packageSuggestion = '/package-suggestion';
   static const String verificationCapture = '/verification-capture';
   static const String verificationModel = '/verification-model';
@@ -42,6 +44,11 @@ class AppPages {
     GetPage(
       name: Routes.orderDetails,
       page: () => const OrderDetailsView(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: Routes.packageForm,
+      page: () => const PackageFormView(),
       transition: Transition.cupertino,
     ),
     GetPage(

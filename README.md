@@ -7,7 +7,10 @@ The system generates a 3D model of an item from multiple images before delivery,
 
 ## System Architecture Diagram
 
-![System Architecture Diagram](Image/architecture_diagram.png‎)
+## 🏗️ System Architecture Diagram
+
+![System Architecture Diagram](Image/architecture_diagram.png)
+
 
 ## Project Objectives
 - Generate accurate 3D models from item images

@@ -9,7 +9,7 @@ The system generates a 3D model of an item from multiple images before delivery,
 ## 🏗️ System Architecture Diagram
 
 <p align="center">
-  <img src="‎Image/architecture diagram.png‎" alt="System Architecture Diagram" width="800">
+  <img src="‎Image/architecture_diagram.png‎" alt="System Architecture Diagram" width="800">
 </p>
 
 

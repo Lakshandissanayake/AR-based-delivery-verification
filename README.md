@@ -6,13 +6,8 @@ The 3D Modeling–Based Delivery Verification System is a technology-driven solu
 The system generates a 3D model of an item from multiple images before delivery, allowing customers to visually verify the item condition before accepting the order. Once accepted, the system provides AI-based packaging suggestions to the warehouse. During delivery, the system performs damage and tamper detection by comparing package conditions. Finally, it generates a proof of delivery, enabling instant refunds in case of damage.
 
 ## System Architecture Diagram
-## 🏗️ System Architecture Diagram
 
-<p align="center">
-  <img src="‎Image/architecture_diagram.png‎" alt="System Architecture Diagram" width="800">
-</p>
-
-
+![System Architecture Diagram](Image/architecture_diagram.png‎)
 
 ## Project Objectives
 - Generate accurate 3D models from item images

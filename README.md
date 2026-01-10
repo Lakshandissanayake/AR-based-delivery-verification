@@ -35,7 +35,7 @@ The system generates a 3D model of an item from multiple images before delivery,
 
 ## System Functions
 
-### 3D Modeling & Customer Verification
+### 1. 3D Modeling & Customer Verification
 
 This module is responsible for generating a 3D representation of the ordered item and allowing the customer to verify it before delivery.
 
@@ -51,7 +51,7 @@ This module is responsible for generating a 3D representation of the ordered ite
 - **NeRF Studio** – Neural Radiance Field–based 3D model generation  
 - **Google Colab** – Development and model training environment
 
-### AI-Based Packaging Suggestion
+### 2. AI-Based Packaging Suggestion
 
 This module provides intelligent packaging recommendations to the warehouse after the customer accepts the order. The goal is to reduce delivery damage, minimize packaging costs, and eliminate manual decision-making errors.
 

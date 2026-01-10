@@ -26,7 +26,7 @@ class AppUser {
       id: id ?? this.id,
       name: name ?? this.name,
       email: email ?? this.email,
-      role: role ?? this.role,
+      role: role ?? this.role,   
       createdAt: createdAt ?? this.createdAt,
     );
   }
@@ -41,13 +41,7 @@ class AppUser {
     };
   }
 
-  factory AppUser.fromMap(Map<String, dynamic> map, {String? documentId}) {
-    final createdRaw = map['createdAt'];
-    DateTime? createdAt;
-    if (createdRaw is Timestamp) {
-      createdAt = createdRaw.toDate();
-    } else if (createdRaw is String) {
-      createdAt = DateTime.tryParse(createdRaw);
+  
     }
 
     return AppUser(

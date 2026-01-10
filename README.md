@@ -33,7 +33,7 @@ The system generates a 3D model of an item from multiple images before delivery,
 11. If damage is detected, the item can be returned and a refund is processed instantly.
 12. If no damage is detected, proof of delivery is generated and stored.
 
-##System Functions
+## System Functions
 
 ### 3D Modeling & Customer Verification
 

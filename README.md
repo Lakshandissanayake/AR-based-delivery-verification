@@ -82,8 +82,19 @@ This module provides intelligent packaging recommendations to the warehouse afte
 - **Google Colab** – Model training and experimentation environment  
 - **Flask** – REST API for delivering packaging recommendations to the warehouse system
 
+### 3. Automatic Tamper Detection and Reporting System
 
+This module focuses on detecting physical damage or tampering in packages during the delivery stage by comparing package condition before and after delivery using computer vision techniques. Instead of relying on manual inspection, the system automatically analyzes delivery videos to identify potential damage and generate structured tamper reports for further analysis and decision-making.
+The generated tamper reports are treated as experimental data, enabling evaluation of detection accuracy, risk levels, and operational impact within delivery and warehouse workflows.
 
-
+#### Key Features
+- Captures pre-delivery and post-delivery package videos
+- Extracts video frames for visual comparison
+- Detects visible damage such as scratches, dents, or deformation
+- Computes a confidence score for detected damage
+- Automatically generates a tamper report for each delivery
+- Classifies delivery risk levels (Low / Medium / High)
+- Supports operational decisions such as auto-approval, manual review, or escalation
+- Enables tamper report analysis to identify delivery risk patterns
 
 

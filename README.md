@@ -1,178 +1,89 @@
-<!-- # Delivery Verification System
+# Delivery Verification System
 
-A Flutter application for scanning and verifying delivery items using camera and AR (Augmented Reality) technology.
+## Project Overview
+The 3D Modeling–Based Delivery Verification System is a technology-driven solution designed to improve transparency, trust, and dispute handling in e-commerce and logistics. Unlike traditional delivery systems, this project focuses only on 3D modeling and computer vision.
 
-## Features
+The system generates a 3D model of an item from multiple images before delivery, allowing customers to visually verify the item condition before accepting the order. Once accepted, the system provides AI-based packaging suggestions to the warehouse. During delivery, the system performs damage and tamper detection by comparing package conditions. Finally, it generates a proof of delivery, enabling instant refunds in case of damage.
 
-- 📷 **Camera Scanning**: Scan delivery items using your device camera
-- 🎯 **3D AR Viewer**: View scanned items in 3D with augmented reality
-- ✅ **Item Verification**: Mark items as verified after inspection
-- 📊 **Delivery Management**: Track all scanned deliveries in one place
-- 🏗️ **MVC Architecture**: Clean separation of concerns
-- 🔄 **State Management**: Powered by Riverpod for reactive state management
+## System Architecture Diagram
 
-## Architecture
+<p align="center">
+  <img src="Image/architecture_diagram.png" alt="System Architecture Diagram" width="700">
+</p>
 
-This project follows the **Model-View-Controller (MVC)** pattern:
+## Project Objectives
+- Generate accurate 3D models from item images
+- Allow customers to verify items before delivery
+- Provide AI-based packaging suggestions to warehouses
+- Detect damage or tampering during delivery
+- Enable instant return and refund processing
+- Generate proof of delivery for completed orders
 
-```
-lib/
-├── models/           # Data models
-│   ├── delivery_item.dart
-│   ├── ar_model.dart
-│   └── scan_result.dart
-├── views/            # UI screens
-│   ├── home_screen.dart
-│   ├── camera_screen.dart
-│   ├── ar_viewer_screen.dart
-│   └── delivery_list_screen.dart
-├── controllers/      # Business logic with Riverpod
-│   ├── camera_controller.dart
-│   ├── ar_controller.dart
-│   └── delivery_controller.dart
-└── utils/           # Utilities and helpers
-    ├── permissions_helper.dart
-    └── constants.dart
-```
+## System Workflow
+1. The customer places an order for the item through the system.
+2. Item images are captured at the warehouse after the order is placed.
+3. A 3D model of the item is generated using the captured images.
+4. The generated 3D model is presented to the customer for inspection.
+5. The customer reviews the 3D model and accepts the order.
+6. After order acceptance, the warehouse requests an AI-based packaging suggestion.
+7. The system provides suitable packaging recommendations based on the item’s 3D model.
+8. The warehouse packs the item using the suggested packaging materials.
+9. The packaged item is sent for delivery.
+10. During delivery, the system performs damage and tamper detection.
+11. If damage is detected, the item can be returned and a refund is processed instantly.
+12. If no damage is detected, proof of delivery is generated and stored.
 
-## Requirements
+## System Functions
 
-- Flutter SDK: ^3.8.1
-- Dart SDK: ^3.8.1
-- Android: API Level 24+ (Android 7.0+)
-- iOS: 11.0+
-- ARCore support (Android) or ARKit support (iOS) for AR features
+### 1. 3D Modeling & Customer Verification
 
-## Installation
+This module is responsible for generating a 3D representation of the ordered item and allowing the customer to verify it before delivery.
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd delivery_verification_system
-   ```
+#### Key Features
+- Captures multiple images of the item from different angles at the warehouse
+- Reconstructs a 3D model using 3D reconstruction techniques
+- Stores item shape, size, and surface condition data
+- Allows the customer to rotate, zoom, and inspect the 3D model
+- Enables the customer to accept the order before the delivery process begins
 
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
+#### Technologies Used
+- **Open3D** – 3D reconstruction and point cloud processing  
+- **NeRF Studio** – Neural Radiance Field–based 3D model generation  
+- **Google Colab** – Development and model training environment
 
-3. **Run the app**
-   ```bash
-   flutter run
-   ```
+### 2. AI-Based Packaging Suggestion
 
-## Permissions
+This module provides intelligent packaging recommendations to the warehouse after the customer accepts the order. The goal is to reduce delivery damage, minimize packaging costs, and eliminate manual decision-making errors.
 
-### Android
-The following permissions are configured in `AndroidManifest.xml`:
-- Camera access
-- Storage access (for saving scanned images)
-- Internet access (for loading 3D models)
+#### Key Features
+- Collects order and delivery-related information
+- Analyzes package weight, product type, delivery distance, transport mode, and packaging material cost
+- Learns patterns from historical packaging and delivery data
+- Predicts the most suitable packaging material for each order
+- Reduces manual packaging decisions and operational errors
+- Provides packaging recommendations before item dispatch
 
-### iOS
-The following permissions are configured in `Info.plist`:
-- Camera usage
-- Photo library access
-- ARKit capabilities
+#### Input Parameters Analyzed
+- Package weight
+- Product type (fragile, non-fragile, etc.)
+- Delivery distance
+- Transport mode (bike, van, truck, etc.)
+- Packaging material cost
 
-## Usage
+#### Packaging Suggestions Provided
+- Most suitable packaging material
+- Optimal packaging type that balances protection and cost efficiency
+- Packaging option that minimizes product damage during delivery
 
-### 1. Scan an Item
-- Tap "Scan New Item" on the home screen
-- Position the item within the camera frame
-- Tap the capture button to scan
+#### Technologies Used
+- **Python** – Machine learning model development  
+- **XGBoost** – Supervised machine learning algorithm for prediction  
+- **Scikit-learn** – Data preprocessing, feature engineering, and model evaluation  
+- **Google Colab** – Model training and experimentation environment  
+- **Flask** – REST API for delivering packaging recommendations to the warehouse system
 
-### 2. View in AR
-- After scanning, tap "View in AR"
-- Explore the 3D model with touch gestures:
-  - Drag to rotate
-  - Pinch to zoom
-  - Tap AR button for augmented reality mode
 
-### 3. Verify Items
-- View item details in AR viewer
-- Tap "Verify This Item" to mark as verified
-- Track verification status on home screen
 
-### 4. Manage Deliveries
-- Tap "View All Deliveries" to see all scanned items
-- Filter by verified/pending status
-- Delete items as needed
 
-## Key Dependencies
 
-- **flutter_riverpod**: State management
-- **camera**: Camera functionality
-- **model_viewer_plus**: 3D model viewing and AR
-- **arcore_flutter_plugin**: Android AR support
-- **arkit_plugin**: iOS AR support
-- **permission_handler**: Runtime permissions
-- **path_provider**: File system access
-- **uuid**: Unique ID generation
 
-## State Management
-
-The app uses **Riverpod** for state management with the following providers:
-
-- `cameraProvider`: Manages camera state and operations
-- `arProvider`: Manages AR models and viewer state
-- `deliveryProvider`: Manages delivery items and verification
-
-## 3D Models
-
-Currently, the app uses demo 3D models from ModelViewer. To use custom models:
-
-1. Add your `.glb` or `.gltf` files to `assets/models/`
-2. Update `pubspec.yaml` to include the assets
-3. Update the model paths in the AR controller
-
-## Future Enhancements
-
-- [ ] Barcode/QR code scanning
-- [ ] Cloud storage integration
-- [ ] Real-time item detection with ML
-- [ ] Custom 3D model generation from photos
-- [ ] Delivery route tracking
-- [ ] Multi-user support
-- [ ] Export delivery reports
-
-## Troubleshooting
-
-### Camera not working
-- Ensure camera permissions are granted
-- Check if another app is using the camera
-- Restart the app
-
-### AR not loading
-- Verify device supports ARCore (Android) or ARKit (iOS)
-- Check internet connection for loading models
-- Update to latest OS version
-
-### Build issues
-```bash
-flutter clean
-flutter pub get
-flutter run
-```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a pull request
-
-## License
-
-This project is licensed under the MIT License.
-
-## Contact
-
-For questions or support, please open an issue on the repository.
-
----
-
-Built with ❤️ using Flutter -->

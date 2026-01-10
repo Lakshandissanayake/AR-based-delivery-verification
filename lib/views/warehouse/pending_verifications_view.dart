@@ -77,7 +77,19 @@ class PendingVerificationsView extends GetView<WarehouseController> {
     );
   }
 
-  Widget _buildOrdersList(List<WarehouseOrder> orders) {
+  // Widget _buildOrdersList(List<WarehouseOrder> orders) {
+  //   return ListView.separated(
+  //     padding: const EdgeInsets.only(bottom: 96),
+  //     itemBuilder: (_, index) {
+  //       final order = orders[index];
+  //       return OrderCard(order: order, onTap: () => _handleOrderTap(order));
+  //     },
+  //     separatorBuilder: (_, __) => const SizedBox(height: 18),
+  //     itemCount: orders.length,
+  //   );
+  // }
+
+    Widget _buildOrdersList(List<WarehouseOrder> orders) {
     return ListView.separated(
       padding: const EdgeInsets.only(bottom: 96),
       itemBuilder: (_, index) {

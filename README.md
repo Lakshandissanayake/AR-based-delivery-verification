@@ -83,9 +83,8 @@ This module provides intelligent packaging recommendations to the warehouse afte
 - **Flask** – REST API for delivering packaging recommendations to the warehouse system
 
 ### 3. Automatic Tamper Detection and Reporting System
-
-This module focuses on detecting physical damage or tampering in packages during the delivery stage by comparing package condition before and after delivery using computer vision techniques. Instead of relying on manual inspection, the system automatically analyzes delivery videos to identify potential damage and generate structured tamper reports for further analysis and decision-making.
-The generated tamper reports are treated as experimental data, enabling evaluation of detection accuracy, risk levels, and operational impact within delivery and warehouse workflows.
+This module detects physical damage or tampering in packages during delivery by comparing pre-delivery and post-delivery package videos using computer vision techniques. The system automates damage identification without relying on manual inspection.
+Generated tamper reports are used as experimental data to evaluate detection accuracy, assess delivery risk levels, and support operational decision-making in warehouse and delivery workflows.
 
 #### Key Features
 - Captures pre-delivery and post-delivery package videos
@@ -97,4 +96,34 @@ The generated tamper reports are treated as experimental data, enabling evaluati
 - Supports operational decisions such as auto-approval, manual review, or escalation
 - Enables tamper report analysis to identify delivery risk patterns
 
+#### Tamper Report Structure
+-Each tamper report contains structured data used for system evaluation and analysis.
+- Package ID
+- Damage detected (Yes / No)
+- Damage type (Scratch, Dent, Tear, None)
+- Damage severity (Low, Medium, High)
+- Confidence score
+- Delivery risk level
+- System decision (Approve, Review, Escalate)
 
+#### Analysis and Research Contribution
+- Evaluates detection accuracy using multiple delivery test cases
+- Analyzes confidence score behavior for correct and incorrect detections
+- Identifies common damage patterns and high-risk deliveries
+- Transforms tamper detection from a simple verification tool into a data-driven decision support system
+
+#### Operational Impact
+- Reduces manual inspection effort for warehouse and delivery teams
+- Enables faster handling of damaged deliveries
+- Supports risk-based decision-making during delivery verification
+- Improves transparency and dispute resolution through visual evidence
+- Helps identify recurring delivery damage patterns for process improvement
+
+#### Technologies Used
+- **Python** – Core system logic and analysis
+- **OpenCV** – Video frame extraction and image comparison
+- **NumPy** – Numerical computations and similarity calculations
+- **Scikit-learn** – Thresholding and evaluation metrics
+- **Flask** – Backend API for tamper report generation
+- **YOLOv8** (Ultralytics) – Object-level package localization and experimental damage-region detection
+- **Google Colab** – Development and experimentation environment

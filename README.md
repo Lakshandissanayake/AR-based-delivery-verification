@@ -127,3 +127,52 @@ Generated tamper reports are used as experimental data to evaluate detection acc
 - **Flask** – Backend API for tamper report generation
 - **YOLOv8** (Ultralytics) – Object-level package localization and experimental damage-region detection
 - **Google Colab** – Development and experimentation environment
+
+### 4.Proof of Delivery Verification
+This module ensures secure, verifiable, and auditable proof of parcel delivery by combining QR code–based parcel identification, signature-based recipient confirmation, and RFID-enabled real-time location tracking. The system minimizes delivery disputes, prevents parcel misidentification, and enhances delivery transparency through digital verification mechanisms.
+
+The PoD verification data is used to validate successful deliveries, track delivery routes, confirm recipient authenticity, and support post-delivery audits and dispute resolution processes.
+
+#### Key Features
+-QR code–based parcel identification for unique package verification
+-Secure scanning of parcel QR codes at dispatch and delivery points
+-Signature-based delivery confirmation captured digitally from the recipient
+-RFID scanner integrated with GPS for real-time parcel location tracking
+-Automatic linking of parcel ID, delivery location, timestamp, and recipient signature
+-Tamper-resistant delivery records stored for audit and verification
+-Supports real-time delivery status updates via backend services
+
+#### TProof of Delivery Record Structure
+-each Proof of Delivery record contains structured data used for verification, tracking, and analysis.
+-Parcel ID (QR Code)
+-RFID Tag ID
+-Delivery status (Pending / Delivered / Failed)
+-Recipient signature (Digital)
+-Delivery timestamp
+-GPS coordinates at delivery point
+-Delivery agent ID
+-Verification result (Verified / Mismatch / Requires Review)
+
+#### Verification and Analysis Contribution
+-Ensures parcel identity integrity using QR code validation
+-Confirms recipient acknowledgment through digital signature verification
+-Tracks real-time parcel movement using RFID + GPS integration
+-Analyzes delivery completion accuracy and location consistency
+-Identifies delivery anomalies such as wrong location or missing confirmation
+-Converts delivery confirmation into a reliable, data-driven verification process
+
+#### Operational Impact
+-Reduces delivery disputes and false delivery claims
+-Eliminates manual paperwork for delivery confirmation
+-Improves trust between logistics providers and customers
+-Enables fast resolution of delivery issues using verifiable digital records
+-Enhances end-to-end delivery transparency and accountability
+
+#### Technologies Used
+-QR Code Technology – Unique parcel identification
+-RFID Scanner – Parcel tracking and identification
+-GPS Module – Real-time location tracking
+-Flutter – Mobile application for delivery verification
+-Node.js / Flask – Backend APIs for PoD data handling
+-Firebase / Database – Secure storage of delivery records
+-REST APIs – Communication between mobile app and backend services

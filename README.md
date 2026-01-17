@@ -35,8 +35,7 @@ The system generates a 3D model of an item from multiple images before delivery,
 
 ## System Functions
 
-### 1. 3D Modeling & Customer Verification
-
+### 1. 3D Modeling with pre delivery refund
 This module is responsible for generating a 3D representation of the ordered item and allowing the customer to verify it before delivery.
 
 #### Key Features
